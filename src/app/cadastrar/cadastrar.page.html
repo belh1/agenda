@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list class = "lista">
+    <ion-item>
+      <ion-input placeholder="Nome" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Telefone" [(ngModel)]="telefone" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select placeholder="Selecione genero" [(ngModel)]="genero">
+        <ion-select-option value="Masculino">Maculino</ion-select-option>
+        <ion-select-option value="Feminino">Feminino</ion-select-option>
+        <ion-select-option value="não declarado">Não declarar</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime" max="{{data}}"
+        presentation="date" [(ngModel)]="data_nacimento"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+  </ion-list>
+
+
+  <ion-button expand="block" shape= "round" (click)="cadastrar()">Cadastrar</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="irParaHome()">
+      <ion-icon name="home"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
